@@ -30,7 +30,21 @@ public class Question_1663 {
         return String.valueOf(chars);
     }
 
+
+    // 网友的优化方案
+    public static String getSmallestString2(int n, int k) {
+        char[] chars = new char[n];
+        Arrays.fill(chars, 'a');
+        int d = k - n, i = n - 1;
+        for (; d >= 25; d -= 25) {
+            chars[i--] = 'z';
+        }
+        chars[i] = (char)('a' + d);
+        return String.valueOf(chars);
+    }
+
     public static void main(String[] args) {
         System.out.println(getSmallestString(5, 73));
+        System.out.println("优化："+getSmallestString2(5,73));
     }
 }
